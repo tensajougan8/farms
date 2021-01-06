@@ -2273,93 +2273,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       colors: ['indigo', 'warning', 'pink darken-2', 'red lighten-1', 'deep-purple accent-4'],
       slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth'],
       items: [{
-        color: '#1F7087',
-        src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-        title: 'Supermodel',
-        artist: 'Foster the People'
+        color: 'red lighten-2',
+        icon: 'mdi-star'
       }, {
-        color: '#952175',
-        src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-        title: 'Halcyon Days',
-        artist: 'Ellie Goulding'
+        color: 'purple darken-1',
+        icon: 'mdi-book-variant'
+      }, {
+        color: 'green lighten-1',
+        icon: 'mdi-airballoon'
+      }, {
+        color: 'indigo',
+        icon: 'mdi-buffer'
       }]
     };
   }
@@ -20384,8 +20314,22 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-app-bar",
-    { attrs: { app: "", color: "indigo", dark: "" } },
+    {
+      attrs: {
+        fixed: "",
+        color: "white",
+        "elevate-on-scroll": "",
+        elevation: 22
+      }
+    },
     [
+      _c(
+        "v-btn",
+        { attrs: { icon: "" } },
+        [_c("v-icon", [_vm._v("mdi-magnify")])],
+        1
+      ),
+      _vm._v(" "),
       _c(
         "v-tabs",
         [
@@ -20452,9 +20396,9 @@ var render = function() {
                     [
                       _c("div", { staticClass: "display-3" }, [
                         _vm._v(
-                          "\n             " +
+                          "\n              " +
                             _vm._s(slide) +
-                            " Slide\n           "
+                            " Slide\n            "
                         )
                       ])
                     ]
@@ -20471,77 +20415,59 @@ var render = function() {
       _vm._v(" "),
       _c(
         "v-container",
-        { staticStyle: { width: "60%" } },
         [
           _c(
-            "v-row",
-            [
-              _c(
-                "v-col",
+            "v-timeline",
+            {
+              attrs: {
+                "align-top": "",
+                dense: _vm.$vuetify.breakpoint.smAndDown
+              }
+            },
+            _vm._l(_vm.items, function(item, i) {
+              return _c(
+                "v-timeline-item",
+                {
+                  key: i,
+                  attrs: { color: item.color, icon: item.icon, "fill-dot": "" }
+                },
                 [
                   _c(
                     "v-card",
-                    { attrs: { color: "purple", dark: "", height: "300" } },
+                    { attrs: { color: item.color, dark: "" } },
                     [
+                      _c("v-card-title", { staticClass: "title" }, [
+                        _vm._v("\n        Lorem Ipsum Dolor\n      ")
+                      ]),
+                      _vm._v(" "),
                       _c(
-                        "div",
-                        { staticClass: "d-flex flex-no-wrap " },
+                        "v-card-text",
+                        { staticClass: "white text--primary" },
                         [
-                          _c("v-img", {
-                            attrs: {
-                              src:
-                                "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("v-card-text", { staticClass: "text-right" }, [
-                            _vm._v("Services")
-                          ])
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-row",
-            [
-              _c(
-                "v-col",
-                [
-                  _c(
-                    "v-card",
-                    { attrs: { color: "purple", dark: "", height: "300" } },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "d-flex flex-no-wrap " },
-                        [
-                          _c("v-card-text", { staticClass: "text-left" }, [
-                            _vm._v("Services")
+                          _c("p", [
+                            _vm._v(
+                              "Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae."
+                            )
                           ]),
                           _vm._v(" "),
-                          _c("v-img", {
-                            attrs: {
-                              src:
-                                "https://cdn.vuetifyjs.com/images/cards/halcyon.png"
-                            }
-                          })
+                          _c(
+                            "v-btn",
+                            {
+                              staticClass: "mx-0",
+                              attrs: { color: item.color, outlined: "" }
+                            },
+                            [_vm._v("\n          Button\n        ")]
+                          )
                         ],
                         1
                       )
-                    ]
+                    ],
+                    1
                   )
                 ],
                 1
               )
-            ],
+            }),
             1
           )
         ],
@@ -20551,215 +20477,12 @@ var render = function() {
       _c("v-parallax", {
         attrs: {
           height: "500",
-          src: "https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
+          src: "https://cdn.vuetifyjs.com/images/parallax/material2.jpg",
+          fluid: ""
         }
-      }),
-      _vm._v(" "),
-      [
-        _c(
-          "v-container",
-          { staticClass: "pa-4 text-center" },
-          [
-            _c(
-              "v-row",
-              {
-                staticClass: "fill-height",
-                attrs: { align: "center", justify: "center" }
-              },
-              [
-                _vm._l(_vm.items, function(item, i) {
-                  return [
-                    _c(
-                      "v-col",
-                      { key: i, attrs: { cols: "12", md: "4" } },
-                      [
-                        _c("v-hover", {
-                          scopedSlots: _vm._u(
-                            [
-                              {
-                                key: "default",
-                                fn: function(ref) {
-                                  var hover = ref.hover
-                                  return [
-                                    _c(
-                                      "v-card",
-                                      {
-                                        class: { "on-hover": hover },
-                                        attrs: { elevation: hover ? 12 : 2 }
-                                      },
-                                      [
-                                        _c(
-                                          "v-img",
-                                          {
-                                            attrs: {
-                                              "aspect-ratio": 16 / 9,
-                                              src:
-                                                "https://cdn.vuetifyjs.com/images/cards/kitchen.png"
-                                            }
-                                          },
-                                          [
-                                            _c("v-expand-transition", [
-                                              hover
-                                                ? _c(
-                                                    "div",
-                                                    {
-                                                      staticClass:
-                                                        "d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal display-3 white--text",
-                                                      staticStyle: {
-                                                        height: "100%"
-                                                      }
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n         $14.99\n       "
-                                                      )
-                                                    ]
-                                                  )
-                                                : _vm._e()
-                                            ])
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "v-card-title",
-                                          { staticClass: "title white--text" },
-                                          [
-                                            _c(
-                                              "v-row",
-                                              {
-                                                staticClass:
-                                                  "fill-height flex-column",
-                                                attrs: {
-                                                  justify: "space-between"
-                                                }
-                                              },
-                                              [
-                                                _c(
-                                                  "p",
-                                                  {
-                                                    staticClass:
-                                                      "mt-4 subheading text-left"
-                                                  },
-                                                  [
-                                                    _vm._v(
-                                                      "\n                       " +
-                                                        _vm._s(item.title) +
-                                                        "\n                     "
-                                                    )
-                                                  ]
-                                                ),
-                                                _vm._v(" "),
-                                                _c("div", [
-                                                  _c(
-                                                    "p",
-                                                    {
-                                                      staticClass:
-                                                        "ma-0 body-1 font-weight-bold font-italic text-left"
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                         " +
-                                                          _vm._s(item.text) +
-                                                          "\n                       "
-                                                      )
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "p",
-                                                    {
-                                                      staticClass:
-                                                        "caption font-weight-medium font-italic text-left"
-                                                    },
-                                                    [
-                                                      _vm._v(
-                                                        "\n                         " +
-                                                          _vm._s(item.subtext) +
-                                                          "\n                       "
-                                                      )
-                                                    ]
-                                                  )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "div",
-                                                  {
-                                                    staticClass:
-                                                      "align-self-center"
-                                                  },
-                                                  _vm._l(_vm.icons, function(
-                                                    icon,
-                                                    index
-                                                  ) {
-                                                    return _c(
-                                                      "v-btn",
-                                                      {
-                                                        key: index,
-                                                        class: {
-                                                          "show-btns": hover
-                                                        },
-                                                        attrs: {
-                                                          color: "transparent",
-                                                          icon: ""
-                                                        }
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "v-icon",
-                                                          {
-                                                            class: {
-                                                              "show-btns": hover
-                                                            },
-                                                            attrs: {
-                                                              color:
-                                                                "transparent"
-                                                            }
-                                                          },
-                                                          [
-                                                            _vm._v(
-                                                              "\n                           " +
-                                                                _vm._s(icon) +
-                                                                "\n                         "
-                                                            )
-                                                          ]
-                                                        )
-                                                      ],
-                                                      1
-                                                    )
-                                                  }),
-                                                  1
-                                                )
-                                              ]
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  ]
-                                }
-                              }
-                            ],
-                            null,
-                            true
-                          )
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                })
-              ],
-              2
-            )
-          ],
-          1
-        )
-      ]
+      })
     ],
-    2
+    1
   )
 }
 var staticRenderFns = []

@@ -2,7 +2,9 @@
 <template>  
 
    <v-app>           
-    <v-carousel
+    
+     
+        <v-carousel
         cycle
         height="600"
         hide-delimiter-background
@@ -28,104 +30,53 @@
           </v-sheet>
         </v-carousel-item>   
       </v-carousel>
-      <v-container
-      style="width: 60%">
-            <v-row>
-              <v-col>
-                <v-card
-                  color="purple"
-                  dark
-                  height = "300"
-                >
-                  <div class="d-flex flex-no-wrap ">
-                   <v-img src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"></v-img>
-                    <v-card-text class="text-right">Services</v-card-text>
-                    
-                    
-                  </div>
-                  
-                </v-card>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col>
-                <v-card
-                  color="purple"
-                  dark
-                  height = "300"
-                >
-                  <div class="d-flex flex-no-wrap ">
-                  
-                    <v-card-text class="text-left">Services</v-card-text>
-                     <v-img src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"></v-img>
-                    
-                    
-                  </div>
-                  
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-container> 
+   <v-container>
+     <v-timeline
+    align-top
+    :dense="$vuetify.breakpoint.smAndDown"
+  >
+    <v-timeline-item
+      v-for="(item, i) in items"
+      :key="i"
+      :color="item.color"
+      :icon="item.icon"
+      fill-dot
+    >
+      <v-card
+        :color="item.color"
+        dark
+      >
+        <v-card-title class="title">
+          Lorem Ipsum Dolor
+        </v-card-title>
+        <v-card-text class="white text--primary">
+          <p>Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.</p>
+          <v-btn
+            :color="item.color"
+            class="mx-0"
+            outlined
+          >
+            Button
+          </v-btn>
+        </v-card-text>
+      </v-card>
+    </v-timeline-item>
+  </v-timeline>
+   </v-container>
+  
+
+    
     <v-parallax
         height="500"
         src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
+        fluid
       ></v-parallax>
-      <template>
-      <v-container class="pa-4 text-center">
-        <v-row
-          class="fill-height"
-          align="center"
-          justify="center"
-        >
-          <template v-for="(item, i) in items">
-            <v-col
-              :key="i"
-              cols="12"
-             
-            >
-              <v-hover v-slot="{ hover }">
-                <v-card
-                  :elevation="hover ? 12 : 2"
-                  :class="{ 'on-hover': hover }"
-                >
-                  <v-img
-        :aspect-ratio="16/9"
-        src="https://cdn.vuetifyjs.com/images/cards/kitchen.png"
-      >
-        <v-expand-transition>
-          <div
-            v-if="hover"
-            class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal display-3 white--text"
-            style="height: 120%;"
-          >
-            $14.99
-          </div>
-        </v-expand-transition>
-      </v-img>
-                   
-                  
-                </v-card>
-              </v-hover>
-            </v-col>
-          </template>
-        </v-row>
-      </v-container>
-      
-    </template>
+         
    </v-app>       
        
 
 </template>
-<style>
-.v-card--reveal {
-  align-items: center;
-  bottom: 0;
-  justify-content: center;
-  opacity: .5;
-  position: absolute;
-  width: 100%;
-}
-</style>
+
 <script>
   export default {
     data () {
@@ -147,16 +98,20 @@
         ],
         items: [
         {
-          color: '#1F7087',
-          src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-          title: 'Supermodel',
-          artist: 'Foster the People',
+          color: 'red lighten-2',
+          icon: 'mdi-star',
         },
         {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
+          color: 'purple darken-1',
+          icon: 'mdi-book-variant',
+        },
+        {
+          color: 'green lighten-1',
+          icon: 'mdi-airballoon',
+        },
+        {
+          color: 'indigo',
+          icon: 'mdi-buffer',
         },
       ]
       }
